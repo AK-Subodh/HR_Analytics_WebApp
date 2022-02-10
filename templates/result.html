@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="brand-title">
+        <h6> What's your candidate like? </h6>
+        </div>
+
+    <!-- Result -->
+    <div class="results">
+        {% if prediction==0 %}
+            <h1>OOPs! ML does not find this candidate to be good enough and suggests to review the application again. </h1>
+            <p style="font-size:100px">&#128531;</p>
+        {% elif prediction==1 %}
+            <h1>Yay! The Candidate is good enough to be promoted! </h1>
+            <p style="font-size:100px">&#129321;</p>
+        {% endif %}
+    </div>
+
+
+
+ <!-- Footer -->
+<div class='footer'>
+    <div class="contact">
+        <a target="_blank" href="https://github.com/anujvyas/Diabetes-Prediction-Deployment"><i class="fab fa-github fa-lg contact-icon"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/anujkvyas"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+    </div>
+    <p class='footer-description'>Made with ❤️ by Anshika Singh.</p>
+</div>   
+</body>
+</html>

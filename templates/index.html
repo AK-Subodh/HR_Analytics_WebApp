@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="container">
+    <div class="brand-title">
+	<h6> What's your candidate like? </h6>
+    </div>
+
+     <!-- Main Input For Receiving Query to our ML -->
+     <div class="inputs">
+    <form action="{{ url_for('predict')}}"method="post">
+        <label for="no_of_trainings">How many trainings has he/she gone through?</label><br>
+    	<input type="number"  name="no_of_trainings" placeholder="no. of trainings" required="required" /><br>
+        
+        <label for="avg_training_score">What is the average training score?</label><br>
+    	<input type="number"  name="avg_training_score" placeholder="avg training score" required="required" /><br>
+        
+        <label for="length_of_service">What is the length of service?</label><br>
+    	<input type="number"  name="length_of_service" placeholder="length of service" required="required" /><br>
+        
+        <label for="previous_yr_rating">What was his/her previous year rating?</label>
+        <select name="previous_yr_rating" id="previous_yr_rating">
+            <option value="5.0">5.0</option>
+            <option value="4.0">4.0</option>
+            <option value="3.0">3.0</option>
+            <option value="2.0">2.0</option>
+            <option value="1.0">1.0</option>
+            <option value="0.0">0.0</option>
+          </select><br>
+
+        <label for="kpi_met">Has he/she met KPIs?</label>
+        <select name="kpi_met" id="kpi_met">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="awards_won">Has he/she won some awards?</label>
+        <select name="awards_won" id="awards_won">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+
+        <label for="department">What is his/her department?</label>
+        <select name="department" id="department">
+            <option value="analytics">Analytics</option>
+            <option value="finance">Finance</option>
+            <option value="hr">HR</option>
+            <option value="legal">Legal</option>
+            <option value="operations">Operations</option>
+            <option value="procurement">Procurement</option>
+            <option value="r&d">R&D</option>
+            <option value="sales&marketing">Sales & Marketing</option>
+            <option value="technology">Technology</option>
+          </select><br>
+
+        <label for="region">Which region do they belong to?</label><br>
+        <input type="number"  name="region" placeholder="region from 1 to 34" required="required" /><br>
+
+        <label for="education">Level of qualification?</label>
+        <select name="education" id="education">
+            <option value="bachelors">Bachlor's</option>
+            <option value="below_secondary">Below Secondary</option>
+            <option value="masters&above">Master's and Above</option>
+        </select><br>
+
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender">
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+        </select><br>
+
+        <label for="recruitment">Recruitment Channel</label>
+        <select name="recruitment" id="recruitment">
+            <option value="referred">Referred</option>
+            <option value="sourcing">Sourcing</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="age">Age group</label>
+        <select name="age" id="age">
+            <option value="20">20-30</option>
+            <option value="30">30-40</option>
+            <option value="40">40 and above</option>
+        </select><br>
+        <button class="'submit" type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    </div>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+<!-- Footer -->
+<div class='footer'>
+    <p class='footer-description'>Made with ❤️ by <a target="blank" href="https://www.linkedin.com/in/anshika-subodhkumar-4955a618a/">Anshika Singh.</a> </p>
+</div>
+
+</body>
+</html>
